@@ -1,0 +1,36 @@
+img {
+    width: 300px;
+}
+
+h1 {
+    font-size: 38px;
+    background: khaki;
+    color: brown;
+}
+
+h2 {
+    background: blueviolet;
+
+}
+
+a {
+    color: aqua;
+    font-size: 34px;
+}
+
+p {
+    font-size: 24px;
+    text-align: justify;
+    background: #68acde;
+    color: coral;
+}
+
+ul {
+    background: #9988a7;
+
+}
+
+li {
+    font-size: 18px;
+    color: #FDDB20FF;
+}
