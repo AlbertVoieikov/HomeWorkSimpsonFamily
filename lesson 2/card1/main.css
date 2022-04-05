@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+}
+.box{
+    width: 1000px;
+    height: 500px;
+    background: grey;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+
+}
+
+.card{
+    width: 300px;
+    height: 400px;
+    background: khaki;
+
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.hd-txt{
+    margin-top: 30%;
+    font-family: Corbel, sans-serif;
+    font-size: 30px;
+}
+
+.txt{
+    margin-top: 5%;
+    font-family: Corbel, sans-serif;
+    font-size: 23px;
+}
+
+.btn{
+    width: 250px;
+    height: 50px;
+    border: 2px dashed #2a2a2a;
+}
+
+.btn-txt{
+    display: block;
+    margin-top: 10px;
+    font-family: Corbel, sans-serif;
+    font-size: 25px;
+}
