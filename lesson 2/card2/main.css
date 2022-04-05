@@ -1,0 +1,65 @@
+body{
+    background: lightgrey;
+    margin: 0;
+}
+.wrap{
+    width: 100%;
+    height: 500px;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hd-txt{
+    font-family: Corbel, sans-serif;
+    font-size: 60px;
+    text-align: center;
+}
+
+.card{
+    width: 300px;
+    height: 400px;
+    background: whitesmoke;
+
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+    border-right: 2px solid #295f8f;
+}
+
+.fa-star, .fa-location-dot, .fa-fire, .fa-earth-europe{
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+.hd2-txt{
+    font-family: Corbel, sans-serif;
+    font-size: 35px;
+
+}
+
+.txt{
+    margin-top: 10%;
+    font-family: Corbel, sans-serif;
+    font-size: 18px;
+}
+
+.btn{
+    margin-top: 10%;
+    width: 150px;
+    height: 50px;
+    border: 2px dashed #2a2a2a;
+
+}
+
+.btn-txt{
+    display: block;
+    margin-top: 10px;
+    font-family: Corbel, sans-serif;
+    font-size: 25px;
+}
