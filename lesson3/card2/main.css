@@ -16,6 +16,7 @@ body {
     background: grey;
 
 }
+
 .container {
     position: relative;
 }
@@ -27,9 +28,9 @@ body {
     justify-content: space-around;
 
     position: absolute;
-    top: -50px
-;
+    top: -50px;
 }
+
 .icon {
     width: 100px;
     height: 100px;
@@ -37,7 +38,4 @@ body {
     border-radius: 10px;
 
     background: darkblue;
-
-
-
 }
