@@ -1,0 +1,55 @@
+.container {
+    width: 100%;
+    height: 900px;
+}
+
+.a {
+    width: 100%;
+    height: 300px;
+    background: cadetblue;
+}
+
+.global-wrap{
+    display: flex;
+}
+
+.wraper{
+    width: 75%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bcd-wrap{
+    width: 100%;
+    height: 300px;
+    background: grey;
+    display: flex;
+}
+
+.b, .c, .d{
+    width: 33.3%;
+    height: 100%;
+    background: khaki;
+    border: 1px solid black;
+}
+
+.efg-wrap{
+    width: 100%;
+    height: 300px;
+    background: lightgrey;
+    display: flex;
+}
+
+.e, .f, .g{
+    width: 33.3%;
+    height: 100%;
+    background: coral;
+    border: 1px solid black;
+}
+
+.h{
+    width: 25%;
+    height: 600px;
+    background: darkblue;
+}
