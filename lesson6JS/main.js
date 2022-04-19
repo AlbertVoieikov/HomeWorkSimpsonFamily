@@ -4,7 +4,7 @@
 
     //let x = -3;
     //const a = x;
-    //if (a != 0){
+    //if (a !== 0){
     //    console.log('Вірно')
     //}else{
     //    console.log('Невірно')
@@ -63,6 +63,10 @@
    //     case 7:
    //         console.log('rest');
    //         break;
+        //default:
+          //  console.log('remember your schedule')
+
+
    // }
 //___________________________________________________________________
 
@@ -70,9 +74,9 @@
     //Потрібно знайти та вивести максимальне число з тих двох .
     //також потрібно врахувати коли введені рівні числа.
 
-    let a = 9;
-    let b = 13;
-    let value = a > b ? a : b;
+    let a = 12;
+    let b = 12;
+    let value = a > b ? a : b || a === b;
 
     console.log(value);
 
