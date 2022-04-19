@@ -76,7 +76,7 @@
 
     let a = 12;
     let b = 12;
-    let value = a > b ? a : b || a === b;
+    let value = a > b ? a : b > a ? b : 'equal numbers';
 
     console.log(value);
 
