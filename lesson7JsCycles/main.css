@@ -1,0 +1,21 @@
+.product-card{
+    width: 400px;
+    height: 400px;
+
+    background: beige;
+
+    text-align: center;
+}
+.product-title{
+    font-size: 30px;
+    text-transform: uppercase;
+
+    padding-top: 10px;
+}
+.product-image{
+    width: 250px;
+    height: 250px;
+}
+.product-price{
+    font-size: 25px;
+}
