@@ -137,6 +137,7 @@ let products = [
     {
         title: 'juice',
         price: 27,
+        image: 'https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74'
 
     },
     {
