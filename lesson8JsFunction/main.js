@@ -106,41 +106,53 @@
 //- створити функцію яка приймає масив об'єктів з наступними полями id,name,age ,
 //  та виводить їх в документ. Для кожного об'єкту окремий блок.
 
-//let users = [
-//    {
- //       id: 1,
-//        name: `vasya`,
-//        age: 16
- //   },
- //   {
-//        id: 2,
-//        name: `kolya`,
-//        age: 18
-//    },
-//    {
-//        id: 3,
-//        name: `maryna`,
-//        age: 17
- //   },
- //   {
- //       id: 4,
- //       name: `sveta`,
- //       age: 15
- //   }
-//];
-//function listArray(array) {
-//    for (const user of array) {
+let users = [
+    {
+       id: 1,
+        name: `vasya`,
+        age: 16
+    },
+    {
+        id: 2,
+        name: `kolya`,
+        age: 18
+    },
+    {
+        id: 3,
+        name: `maryna`,
+        age: 17
+    },
+    {
+        id: 4,
+        name: `sveta`,
+        age: 15
+    }
+];
+function listArray(array) {
+    for (const user of array) {
+        document.write(`<div>${user.id} ${user.name} ${user.age}</div>`);
  //       console.log(user)
- //   }
-//}
-//listArray(users);
+   }
+}
+listArray(users);
 
 //___________________________________
 
 // ============= task 10 =============
 //- створити функцію яка повертає найменьше число з масиву
 
+let numbers = [45, 8, -9, 10];
 
+function getMinNum(array) {
+    let minNum = array[0];
+    for (const arrItem of array) {
+        if (arrItem < minNum){
+            minNum = arrItem
+        };
+    }
+    return minNum;
+}
+console.log(getMinNum(numbers));
 
 //___________________________________
 
