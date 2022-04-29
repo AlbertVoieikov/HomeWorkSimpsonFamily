@@ -175,14 +175,36 @@
 // - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
 
 
+// let averageValue = (array) => {
+//     return array.reduce((a, b) => a + b, 0) / array.length;
+  //  let result = 0;
+  //  for (const arrayElement of array) {
+  //      result = (result + arrayElement);
+  //  }
+  //  return result / array.length;
+// }
+// let array = [4, 5, 6, 7];
+// console.log(averageValue(array));
 
 //___________________________________
 
 // ============= task 13 =============
 
-//- створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше (Math використовувати заборонено);
-
-
+//- створити функцію яка приймає будь-яку кількість чисел, повертає найменьше,
+//  а виводить найбільше (Math використовувати заборонено);
+// let array = [22,3,49,5,6,75,8]
+// let arrValue = (array) => {
+//      let minValue = array[0];
+//      let maxValue = array[0];
+//      for (const item of array) {
+//          if (item > maxValue) maxValue = item;
+//          if (item < minValue) minValue = item;
+//      };
+//       console.log(maxValue);
+//      return minValue;
+//  };
+//  let minValue = arrValue(array);
+//  console.log(minValue);
 
 //___________________________________
 
@@ -191,21 +213,46 @@
 // - створити функцію яка заповнює масив рандомними числами
 // (цей код генерує рандомні числа в діапазоні від 0 до 100 - Math.round(Math.random()*100)) та виводить його.
 
-
-
+// let randomNum = (value) => {
+//     let array = [];
+//     for (let i = 0; i < value; i++){
+//         array.push(Math.round(Math.random()*100));
+//     }
+ //    return array;
+// };
+// console.log(randomNum(100));
 //___________________________________
 
 // ============= task 15 =============
 
-// - створити функцію яка заповнює масив рандомними числами в діапазоні від 0 до limit. limit - аргумент, який характеризує кінцеве значення діапазону.
+// - створити функцію яка заповнює масив рандомними числами в діапазоні від 0 до limit.
+// limit - аргумент, який характеризує кінцеве значення діапазону.
 
-
+// let randomNum = (limit) => {
+//     let array = [];
+//     for (let i = 0; i < limit; i++){
+ //        array.push(Math.round(Math.random()*limit));
+//     }
+//     return array;
+// };
+// console.log(randomNum(50));
 
 //___________________________________
 
 // ============= task 16 =============
 
 // - Функція приймає масив та робить з нього новий масив в зворотньому порядку. [1,2,3] -> [3, 2, 1].
+
+// let directArr = [1,2,3];
+// let reverseArr = directArr.reverse();
+// console.log(reverseArr);
+
+let directArr = [1,2,3];
+let reverseArr = (array) => array.reverse();
+
+reverseArr(directArr);
+console.log(directArr);
+
 
 
 
