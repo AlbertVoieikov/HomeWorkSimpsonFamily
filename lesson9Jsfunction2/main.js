@@ -247,13 +247,18 @@
 // let reverseArr = directArr.reverse();
 // console.log(reverseArr);
 
-let directArr = [1,2,3];
-let reverseArr = (array) => array.reverse();
+//let directArr = [1,2,3];
+//let reverseArr = (array) => array.reverse();
 
-reverseArr(directArr);
-console.log(directArr);
+//reverseArr(directArr);
+//console.log(directArr);
 
-
-
-
+let reverseArr = (array) => {
+    let value = [];
+    while (array.length){
+        value.push(array.pop());
+    }
+    return value;
+ };
+console.log(reverseArr([4, 5, 6]))
 //___________________________________
