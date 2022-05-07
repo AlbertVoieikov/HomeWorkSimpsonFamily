@@ -23,12 +23,30 @@
 // - Даны два целых числа A и В . Выведите все числа от A до B включительно, в порядке возрастания,
 // если A < B, или в порядке убывания в противном случае.
 
-let a = 1;
-let b = 10;
-while (a<=b){
-    console.log(a);
-    a+=1;
-}
+// let a = 1;
+// let b = 10;
+// while (a<=b){
+//     console.log(a);
+//     a+=1;
+// }
+
+
+// let b = 10
+// let iterationRec = (a) => {
+//     console.log(a);
+//     a++;
+//     if (a < b) {
+//         iterationRec(a);
+//     }
+// }
+// iterationRec(3);
+// let i = 20;
+let n = 10;
+for (let i = 0; i < n; i++) {
+    console.log(i);
+    }
+
+
 
 
 
@@ -53,14 +71,6 @@ while (a<=b){
 
 // ===========================================================
 
-let directArr = [1,2,3];
-let reverseArr = (array) => {
-    for (let i = directArr.length; i >= 0; i--){
-        console.log(directArr[i]);
-    };
-}
-reverseArr();
-// numbers = [2,17,13,6,22,31,45,66,100,-18];
-// for (let u = numbers.length; u >= 0; u--){
-//     console.log(numbers[u]);
-// };
+
+
+
