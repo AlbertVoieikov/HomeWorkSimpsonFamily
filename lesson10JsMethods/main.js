@@ -75,6 +75,18 @@
 // sortNums(nums,'descending') // [21,11,3]
 
 // let nums = [11,21,3];
+// let sortNums = (nums,direction) => {
+//     if (direction === 'ascending'){
+//         nums.sort((item1, item2) => item1 - item2)
+//     }else if (direction === 'descending'){
+//         nums.sort((item1, item2) => item2 - item1)
+//     }
+//     return nums;
+// }
+// console.log(sortNums(nums, 'ascending'));
+// console.log(sortNums(nums, 'descending'));
+
+// let nums = [11,21,3];
 // console.log(nums.sort((item1, item2) => item1 - item2));
 // console.log(nums.sort((item1, item2) => item2 - item1));
 
@@ -125,3 +137,72 @@
 //         value: '', // '6'-'10', 'ace','jack','queen','king','joker'
 //     color:'', // 'red','black'
 // }
+
+//  let deckCards = [
+//     {cardSuit: 'heart', value: '6', color: 'red'},
+//     {cardSuit: 'heart', value: '7', color: 'red'},
+//     {cardSuit: 'heart', value: '8', color: 'red'},
+//     {cardSuit: 'heart', value: '9', color: 'red'},
+//     {cardSuit: 'heart', value: '10', color: 'red'},
+//     {cardSuit: 'heart', value: 'jack', color: 'red'},
+//     {cardSuit: 'heart', value: 'queen', color: 'red'},
+//     {cardSuit: 'heart', value: 'king', color: 'red'},
+//     {cardSuit: 'heart', value: 'ace', color: 'red'},
+//     {cardSuit: 'diamond', value: '6', color: 'red'},
+//     {cardSuit: 'diamond', value: '7', color: 'red'},
+//     {cardSuit: 'diamond', value: '8', color: 'red'},
+//     {cardSuit: 'diamond', value: '9', color: 'red'},
+//     {cardSuit: 'diamond', value: '10', color: 'red'},
+//     {cardSuit: 'diamond', value: 'jack', color: 'red'},
+//     {cardSuit: 'diamond', value: 'queen', color: 'red'},
+//     {cardSuit: 'diamond', value: 'king', color: 'red'},
+//     {cardSuit: 'diamond', value: 'ace', color: 'red'},
+//     {cardSuit: 'spade', value: '6', color: 'black'},
+//     {cardSuit: 'spade', value: '7', color: 'black'},
+//     {cardSuit: 'spade', value: '8', color: 'black'},
+//     {cardSuit: 'spade', value: '9', color: 'black'},
+//     {cardSuit: 'spade', value: '10', color: 'black'},
+//     {cardSuit: 'spade', value: 'jack', color: 'black'},
+//     {cardSuit: 'spade', value: 'queen', color: 'black'},
+//     {cardSuit: 'spade', value: 'king', color: 'black'},
+//     {cardSuit: 'spade', value: 'ace', color: 'black'},
+//     {cardSuit: 'clubs', value: '6', color: 'black'},
+//     {cardSuit: 'clubs', value: '7', color: 'black'},
+//     {cardSuit: 'clubs', value: '8', color: 'black'},
+//     {cardSuit: 'clubs', value: '9', color: 'black'},
+//     {cardSuit: 'clubs', value: '10', color: 'black'},
+//     {cardSuit: 'clubs', value: 'jack', color: 'black'},
+//     {cardSuit: 'clubs', value: 'queen', color: 'black'},
+//     {cardSuit: 'clubs', value: 'king', color: 'black'},
+//     {cardSuit: 'clubs', value: 'ace', color: 'black'},
+//     {cardSuit: 'redJoker', value: 'joker', color: 'red'},
+//     {cardSuit: 'blackJoker', value: 'joker', color: 'black'},
+// ];
+// let filterCard = deckCards.filter((item) => {
+//     return (item.cardSuit === 'spade' && item.value === 'ace');
+// });
+//console.log(filterCard);
+
+
+//let filterCard = deckCards.filter((item) => {
+//    return (item.value === '6');
+//});
+//console.log(filterCard);
+
+//let filterCard = deckCards.filter((item) => {
+//    return (item.color === 'red');
+//});
+//console.log(filterCard);
+
+// let filterCard = deckCards.filter((item) => {
+//     return (item.cardSuit === 'diamond');
+// });
+// console.log(filterCard);
+
+// let filterCard = deckCards.filter((item) => {
+//      return (item.cardSuit === 'clubs' && item.value > '8' ||
+//          item.value === '10' && item.cardSuit === 'clubs' ||
+//          item.cardSuit === 'blackJoker' && item.value === 'joker'
+//      );
+//  });
+//  console.log(filterCard);
