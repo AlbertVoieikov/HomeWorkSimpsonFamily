@@ -87,37 +87,135 @@
 // -- changeYear (newValue) - змінює рік випуску на значення newValue
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів,
 // і додає його в поточний об'єкт car
+//
+// function Car(model, producer, manufactureYear, maxSpeed, engineCapacity) {
+//         this.model = model;
+//         this.producer = producer;
+//         this.manufactureYear = manufactureYear;
+//         this.maxSpeed = maxSpeed;
+//         this.engineCapacity = engineCapacity
+//         this.drive = function () {
+//         console.log(`їдемо зі швидкістю ${this.maxSpeed} кілометрів на годину`);
+//     }
+//         this.info = function () {
+//             for (const item in this) {
+//                 console.log(`${item} : ${this[item]}`)
+//             }
+//
+//         // console.log
+//         // (
+//         //     `model: vito;`,
+//         //     `producer: mercedes;`,
+//         //     `manufactureYear: 2018;`,
+//         //     `maxSpeed: 180km/h;`,
+//         //     `engineCapacity: 3,2l`
+//         // )
+//     }
+//         this.increaseMaxSpeed = function (newSpeed){
+//             this.maxSpeed += newSpeed
+//         }
+//         this.changeYear = function (newValue){
+//             this.manufactureYear = newValue
+//         }
+//         this.addDriver = function (driver){
+//             this.driver = driver;
+//         }
+// }
+// let car1 = new Car (`vito`, `mercedes`, 2018, 180, `3,2l`);
+// car1.drive();
+// car1.info();
+// car1.increaseMaxSpeed(220);
+// car1.changeYear(2020);
+// car1.addDriver(`Kostya`);
+// console.log(car1);
 
-// ===================== task 7 =====================
-// - (Те саме, тільки через клас)
-// Створити клас який дозволяє створювати об'єкти car, з властивостями модель, виробник,
-// рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
-// -- drive () - яка виводить в консоль `їдемо зі швидкістю ${максимальна швидкість} кілометрів на годину`
-// -- info () - яка виводить всю інформацію про автомобіль в форматі `назва поля - значення поля`
-// -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
-// -- changeYear (newValue) - змінює рік випуску на значення newValue
-// -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів,
-// і додає його в поточний об'єкт car
+// // ===================== task 7 =====================
+// // - (Те саме, тільки через клас)
+// // Створити клас який дозволяє створювати об'єкти car, з властивостями модель, виробник,
+// // рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
+// // -- drive () - яка виводить в консоль `їдемо зі швидкістю ${максимальна швидкість} кілометрів на годину`
+// // -- info () - яка виводить всю інформацію про автомобіль в форматі `назва поля - значення поля`
+// // -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
+// // -- changeYear (newValue) - змінює рік випуску на значення newValue
+// // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів,
+// // і додає його в поточний об'єкт car
+//
+// class Car {
+//     constructor(model, producer, manufactureYear, maxSpeed, engineCapacity) {
+//         this.model = model;
+//         this.producer = producer;
+//         this.manufactureYear = manufactureYear;
+//         this.maxSpeed = maxSpeed;
+//         this.engineCapacity = engineCapacity
+//     }
+//     drive() {
+//         console.log(`їдемо зі швидкістю ${this.maxSpeed} кілометрів на годину`);
+//     }
+//     info () {
+//         for (const item in this) {
+//                 console.log(`${item} : ${this[item]}`)
+//             }
+//      }
+//     increaseMaxSpeed (newSpeed){
+//         this.maxSpeed += newSpeed;
+//     }
+//     changeYear (newValue){
+//         this.manufactureYear = newValue;
+//     }
+//     addDriver (driver){
+//         this.driver = driver;
+//     }
+// }
+// let car1 = new Car (`vito`, `mercedes`, 2018, 180, `3,2l`);
+// car1.drive();
+// car1.info();
+// car1.increaseMaxSpeed(220);
+// car1.changeYear(2020);
+// car1.addDriver(`Kostya`);
+// console.log(car1);
 
-class Car {
-    constructor(model, producer, manufactureYear, maxSpeed, engineCapacity) {
-        this.model = model;
-        this.producer = producer;
-        this.manufactureYear = manufactureYear;
-        this.maxSpeed = maxSpeed;
-        this.engineCapacity = engineCapacity
-    }
-    drive() {
-        console.log(`їдемо зі швидкістю ${this.maxSpeed} кілометрів на годину`);
-    }
-
-}
-let car1 = new Car (`vito`, `mercedes`, 2018, 180, `3,2l`);
-console.log(car1);
-car1.drive();
-
-// ===================== task 8 =====================
-// -створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити масив з 10 попелюшок.
-// Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
-//     За допомоги циклу знайти яка попелюшка повинна бути з принцом.
-//     Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
+// // ===================== task 8 =====================
+// // -створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги.
+// // Створити масив з 10 попелюшок.
+// // Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
+// //     За допомоги циклу знайти яка попелюшка повинна бути з принцом.
+// //     Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
+//
+// class Cinderella {
+//     constructor(name, age, footSize) {
+//         this.name = name;
+//         this.age = age;
+//         this.footSize = footSize;
+//     }
+// }
+// let arrayOfCinder = [
+//     new Cinderella(`katya`, 25, 38),
+//     new Cinderella(`polina`, 28, 34),
+//     new Cinderella(`maryna`, 31, 36),
+//     new Cinderella(`olena`, 25, 39),
+//     new Cinderella(`sveta`, 24, 40),
+//     new Cinderella(`margo`, 30, 33),
+//     new Cinderella(`albina`, 22, 35),
+//     new Cinderella(`vaselyna`, 20, 38),
+//     new Cinderella(`yulya`, 35, 39),
+//     new Cinderella(`oleksandra`, 21, 41)
+// ];
+// class Prince {
+//     constructor(name, age, findShoesSize) {
+//         this.name = name;
+//         this.age = age;
+//         this.findShoesSize = findShoesSize;
+//     }
+// }
+// let ourPrince = new Prince (`Kostya`, 33, 40);
+//
+// let findCinder = (arrayOfCinder, prince) => {
+//     for (const girl of arrayOfCinder) {
+//         if(girl.footSize === prince.findShoesSize)
+//             return `${girl.name}`
+//     }
+// }
+// console.log(findCinder(arrayOfCinder, ourPrince));
+//
+// let ourCinder = arrayOfCinder.find(value => value.footSize === ourPrince.findShoesSize);
+// console.log(ourCinder);
