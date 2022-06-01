@@ -45,8 +45,8 @@ fetch(`https://jsonplaceholder.typicode.com/comments`)
             <h3>ID - ${coment.id}</h3>
             <h4>Post name - ${coment.name}</h4>
             <p>Title - ${coment.title}</p>
-            <a>e-mail - ${coment.email}</a>>
-            <span>Body - ${coment.body}</span>`;
+            <a>e-mail - ${coment.email}</a>
+            <p>Body - ${coment.body}</p>`;
 
             coments.appendChild(comentDiv)
         }
