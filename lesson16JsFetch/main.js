@@ -35,15 +35,17 @@
 
 
 let coments = document.getElementById(`comments`)
-fetch(`https://jsonplaceholder.typicode.com/posts`)
+fetch(`https://jsonplaceholder.typicode.com/comments`)
     .then(response => response.json())
     .then(comentsList => {
         for (const coment of comentsList) {
             let comentDiv = document.createElement(`div`);
 
-            comentDiv.innerHTML = `<h2>User ID - ${coment.userId}</h2>
-            <h3>Post ID - ${coment.id}</h3>
+            comentDiv.innerHTML = `<h2>Post ID - ${coment.postId}</h2>
+            <h3>ID - ${coment.id}</h3>
+            <h4>Post name - ${coment.name}</h4>
             <p>Title - ${coment.title}</p>
+            <a>e-mail - ${coment.email}</a>>
             <span>Body - ${coment.body}</span>`;
 
             coments.appendChild(comentDiv)
