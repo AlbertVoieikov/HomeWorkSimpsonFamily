@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+.posts {
+    width: 100%;
+
+
+    border: 1px solid cornflowerblue;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-flow: row wrap;
+
+    justify-content: space-between;
+
+}
+
+.postDiv {
+    width: 19%;
+
+    font-size: 12px;
+
+    border: 1px solid black;
+    box-sizing: border-box;
+
+    padding: 5px;
+    margin: 5px;
+}
