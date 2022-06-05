@@ -20,12 +20,13 @@ fetch(`https://jsonplaceholder.typicode.com/users`)
             divContainer.style.border = `1px solid blue`;
 
             const userDetailsBtn = document.createElement(`button`);
+            userDetailsBtn.id = `userBtn`;
 
             userDetailsBtn.innerHTML = `<a href="user-details.html?id=${user.id}">User details</a>`
             divContainer.append(userDetailsBtn);
 
             userDetailsBtn.onclick = () => {
-                fetch(`https://jsonplaceholder.typicode.com/users`)
+                fetch(`https://jsonplaceholder.typicode.com/users${user.id}`)
                     .then(value => value.json())
                     .then(value => {
                         const userContainer = document.createElement(`div`);
@@ -57,7 +58,7 @@ fetch(`https://jsonplaceholder.typicode.com/users`)
                                 `
 
                             userContainer.append(userDiv);
-                            userDetailsBtn.disabled = true;
+                            // userDetailsBtn.disabled = true;
 
 
                         }
