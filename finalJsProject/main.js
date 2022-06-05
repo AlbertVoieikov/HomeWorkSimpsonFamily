@@ -4,39 +4,35 @@
 // 3 Добавить каждому блоку кнопку/ссылку , при клике на которую происходит переход на страницу user-details.html,
 // которая имеет детальную информацию про объект на который кликнули
 
-let usersContainer = document.getElementById(`users`)
-usersContainer && fetch(`https://jsonplaceholder.typicode.com/users`)
-    .then(response => response.json())
-    .then(response => {
-        for (const user of response) {
-            const userDiv = document.createElement(`div`);
-            userDiv.id = `userDiv`;
-            userDiv.classList = `userDiv`;
-            userDiv.innerHTML = `
-                <p>user id - ${user.id}</p>
-                <p>user name - ${user.name}</p>`;
+fetch(`https://jsonplaceholder.typicode.com/users`)
+    .then(value => value.json())
+    .then(value => {
+        const wrapDiv = document.createElement(`div`);
 
-            usersContainer.appendChild(userDiv);
+        document.body.append(wrapDiv);
+        for (const user of value) {
+            const divContainer = document.createElement(`div`);
+            wrapDiv.append(divContainer);
+            const {id, name} = user;
+            divContainer.innerHTML = `
+                <p>UserId: ${user.id}</p>
+                <p>Name: ${user.name}</p>`
+            divContainer.style.border = `1px solid blue`;
 
+            const userDetailsBtn = document.createElement(`button`);
 
-            const button = document.createElement(`button`);
-            button.id = `userButton`;
-            button.innerHTML = `<a href="user-details.html?id=${user.id}">User details</a>`;
-            userDiv.appendChild(button);
-        }
-    });
+            userDetailsBtn.innerHTML = `<a href="user-details.html?id=${user.id}">User details</a>`
+            divContainer.append(userDetailsBtn);
 
-const userDetails = document.getElementById(`userDet`);
-const userId = new URLSearchParams(location.search).get(`id`);
-
-
-userId && fetch(`https://jsonplaceholder.typicode.com/users`)
-        .then(value => value.json())
-        .then(value => {
-                const userDetails = document.getElementById(`userDet`);
-                for (const user of value) {
-                const userDetailsDiv = document.createElement(`div`);
-                userDetailsDiv.innerHTML = `
+            userDetailsBtn.onclick = () => {
+                fetch(`https://jsonplaceholder.typicode.com/users`)
+                    .then(value => value.json())
+                    .then(value => {
+                        const userContainer = document.createElement(`div`);
+                        divContainer.append(userContainer);
+                        for (const userContainerElement of value) {
+                            const userDiv = document.createElement(`div`);
+                            userDiv.innerHTML = `
                                 <p>id: ${user.id}</p>
                                 <p>name: ${user.name} </p>
                                 <p>username: ${user.username}</p>
@@ -57,12 +53,20 @@ userId && fetch(`https://jsonplaceholder.typicode.com/users`)
                                     <p>name: ${user.company.name}</p>
                                     <p>catchPhrase: ${user.company.catchPhrase}</p>
                                     <p>bs: ${user.company.bs}</p>
-                                </p>`;
-                userDetails.appendChild(userDetailsDiv);
+                                </p>
+                                `
 
+                            userContainer.append(userDiv);
+                            userDetailsBtn.disabled = true;
+
+
+                        }
+                    })
             }
+        }
 
-        })
+    });
+
 
 
 
