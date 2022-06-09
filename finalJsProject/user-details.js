@@ -1,14 +1,17 @@
 let userDetails = localStorage.getItem(`user`);
-console.log(userDetails);
+let userDetailsParse = JSON.parse(userDetails);
+console.log(userDetailsParse);
 
 const wrapUserDetails = document.getElementById(`userDet`);
 fetch(`https://jsonplaceholder.typicode.com/users`)
     .then(value => value.json())
-    .then(value => {
-        for (const userItem of value) {
+    .then(users => {
+        const wrapUserDetails = document.getElementById(`userDet`);
+        for (const userItem of users) {
+            if (userItem.id) {
                 const divElement = document.createElement(`div`);
-                wrapUserDetails.append(divElement);
-                // divElement.innerText = `${userKey}: ${user[userKey]}`;
+
+
                 divElement.innerHTML = `
                 <p>id: ${userItem.id}</p>
                 <p>name: ${userItem.name} </p>
@@ -31,9 +34,10 @@ fetch(`https://jsonplaceholder.typicode.com/users`)
                     <p>catchPhrase: ${userItem.company.catchPhrase}</p>
                     <p>bs: ${userItem.company.bs}</p>
                 </p>`
+                wrapUserDetails.append(divElement);
 
-            // const buttonElement = document.getElementsByClassName(`button`)
-            // buttonElement.disabled = true;
-
+                // const buttonElement = document.getElementsByClassName(`button`)
+                // buttonElement.disabled = true;
+            }
         }
     })
