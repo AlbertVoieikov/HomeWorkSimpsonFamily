@@ -3,10 +3,9 @@ let userDetailsParse = JSON.parse(userDetails);
 console.log(userDetailsParse);
 
 const wrapUserDetails = document.getElementById(`userDet`);
-const divElement = document.createElement(`div`);
-divElement.append(userDetailsParse);
-wrapUserDetails.append(divElement);
-divElement.innerHTML = `
+const divUserDetails = document.createElement(`div`);
+divUserDetails.append(userDetailsParse);
+divUserDetails.innerHTML = `
                 <p>id: ${userDetailsParse.id}</p>
                 <p>name: ${userDetailsParse.name} </p>
                 <p>username: ${userDetailsParse.username}</p>
@@ -27,8 +26,41 @@ divElement.innerHTML = `
                     <p>name: ${userDetailsParse.company.name}</p>
                     <p>catchPhrase: ${userDetailsParse.company.catchPhrase}</p>
                     <p>bs: ${userDetailsParse.company.bs}</p>
-                </p>
-                `
+                </p>`
+wrapUserDetails.append(divUserDetails);
+
+fetch(`https://jsonplaceholder.typicode.com/users/${userDetailsParse.id}/posts`)
+    .then(response => response.json())
+    .then(postsList => {
+        for (const post of postsList) {
+            const postDiv = document.createElement(`div`);
+            postDiv.classList = `post`;
+            const h2Element = document.createElement(`h2`);
+            h2Element.innerText = post.id + `. ` + post.title;
+            const formElement = document.createElement(`form`);
+            formElement.setAttribute(`action`, `post-details.html`);
+            const postButton = document.createElement(`button`);
+            postButton.innerText = `Post of current user`;
+            postButton.classList = `button`;
+            postButton.onclick = () => {
+                localStorage.setItem(`post`, JSON.stringify(post));
+            }
+            formElement.append(postButton);
+            postDiv.append(formElement);
+            divUserDetails.append(postDiv);
+
+        }
+
+    });
+
+
+
+
+
+
+
+
+
 
 // const wrapUserDetails = document.getElementById(`userDet`);
 // fetch(`https://jsonplaceholder.typicode.com/users`)
