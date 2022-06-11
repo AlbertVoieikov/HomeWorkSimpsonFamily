@@ -4,6 +4,7 @@ console.log(userDetailsParse);
 
 const wrapUserDetails = document.getElementById(`userDet`);
 const divUserDetails = document.createElement(`div`);
+wrapUserDetails.append(divUserDetails);
 divUserDetails.append(userDetailsParse);
 divUserDetails.innerHTML = `
                 <p>id: ${userDetailsParse.id}</p>
@@ -27,31 +28,54 @@ divUserDetails.innerHTML = `
                     <p>catchPhrase: ${userDetailsParse.company.catchPhrase}</p>
                     <p>bs: ${userDetailsParse.company.bs}</p>
                 </p>`
-wrapUserDetails.append(divUserDetails);
 
 fetch(`https://jsonplaceholder.typicode.com/users/${userDetailsParse.id}/posts`)
     .then(response => response.json())
     .then(postsList => {
+
         for (const post of postsList) {
-            const postDiv = document.createElement(`div`);
-            postDiv.classList = `post`;
-            const h2Element = document.createElement(`h2`);
-            h2Element.innerText = post.id + `. ` + post.title;
             const formElement = document.createElement(`form`);
             formElement.setAttribute(`action`, `post-details.html`);
             const postButton = document.createElement(`button`);
-            postButton.innerText = `Post of current user`;
+            postButton.innerText = `Posts of current user`;
             postButton.classList = `button`;
             postButton.onclick = () => {
                 localStorage.setItem(`post`, JSON.stringify(post));
             }
             formElement.append(postButton);
-            postDiv.append(formElement);
-            divUserDetails.append(postDiv);
-
+            // postDiv.append(formElement);
+            divUserDetails.append(formElement);
         }
 
+
+
     });
+
+
+
+// fetch(`https://jsonplaceholder.typicode.com/users/${userDetailsParse.id}/posts`)
+//     .then(response => response.json())
+//     .then(postsList => {
+//         for (const post of postsList) {
+//             const postDiv = document.createElement(`div`);
+//             postDiv.classList = `post`;
+//             const h2Element = document.createElement(`h2`);
+//             h2Element.innerText = post.id + `. ` + post.title;
+//             const formElement = document.createElement(`form`);
+//             formElement.setAttribute(`action`, `post-details.html`);
+//             const postButton = document.createElement(`button`);
+//             postButton.innerText = `Posts of current user`;
+//             postButton.classList = `button`;
+//             postButton.onclick = () => {
+//                 localStorage.setItem(`post`, JSON.stringify(post));
+//             }
+//             formElement.append(postButton);
+//             // postDiv.append(formElement);
+//             divUserDetails.append(formElement);
+//
+//         }
+//
+//     });
 
 
 
