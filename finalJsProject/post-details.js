@@ -2,80 +2,46 @@ const postInfo = localStorage.getItem(`postsJson`)
 const postInfoParse = JSON.parse(postInfo);
 console.log(postInfoParse);
 
-const postContainer = document.getElementById(`postContainer`);
-const postItemWrap = document.createElement(`div`);
-// const {userId, id, title, body} = postInfoParse;
-postItemWrap.append(postInfoParse);
-postItemWrap.innerHTML =
-    `<p>userId: ${postInfoParse.userId}</p>
-    <p>id: ${postInfoParse.id}</p>
-    <p>title: ${postInfoParse.title}</p>
-    <p>body: ${postInfoParse.body}</p>`
-postContainer.append(postItemWrap);
+
+fetch(`https://jsonplaceholder.typicode.com/posts`)
+    .then(response => response.json())
+    .then(response => {
+        const postContainer = document.getElementById(`postContainer`)
+        for (const post of response) {
+        const postWrap = document.createElement(`div`);
+            postContainer.append(postWrap);
+        const {userId, id, title, body} = post;
+            postWrap.innerHTML =
+            `<p>userId: ${userId}</p>
+             <p>postId: ${id}</p>
+             <p>title: ${title}</p>
+             <p>body: ${body}</p>`;
+
+            const commentBtn = document.createElement(`button`);
+            commentBtn.innerText = `Comments of curent post`;
+            postWrap.append(commentBtn);
+
+            commentBtn.onclick = () => {
+                fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
+                    .then(value => value.json())
+                    .then(value => {
+                        const commentsWrap = document.createElement(`div`);
+                        postWrap.append(commentsWrap);
+                        for (const comment of value) {
+                            const commentDiv = document.createElement(`div`);
+                            commentDiv.innerHTML =
+                                `<p>postId: ${comment.postId}</p>
+                                <p>commentId: ${comment.id}</p>
+                                <p>name: ${comment.name}</p>
+                                <p>email: ${comment.email}</p>
+                                <p>body: ${comment.body}</p>`;
+                            commentsWrap.append(commentDiv);
+                        }
+                        commentBtn.disabled = true;
+                    })
+            }
+
+        }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// fetch(fetch(`https://jsonplaceholder.typicode.com/users/${postInfoParse.id}/posts`))
-//     .then(response => response.json())
-//     .then(value => {
-//
-//     });
-//
-
-
-
-
-
-
-
-//
-// const postInfo = localStorage.getItem(`postsJson`)
-// const postInfoParse = JSON.parse(postInfo);
-// console.log(postInfoParse);
-//
-// const postContainer = document.getElementById(`postContainer`);
-// const postsWrap = document.createElement(`div`)
-// postContainer.append(postsWrap);
-//
-// const postInfoDiv = document.createElement(`div`);
-//
-// postsWrap.append(postInfoDiv)
-// postInfoDiv.append(postInfoParse)
-// postInfoDiv.classList = `postDiv`;
-// postInfoDiv.innerHTML = `
-//     <p>UserID: ${postInfoParse.userId}</p>
-//     <p>PostID: ${postInfoParse.id}</p>
-//     <p>Title: ${postInfoParse.title}</p>
-//     <p>Body: ${postInfoParse.body}</p>
-//    `;
-//
-
-
-
-
-
-
-
-
+    });
