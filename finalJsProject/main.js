@@ -26,27 +26,69 @@
 // Все без исключения элементы, который характеризируют user,post,comment  визуализировать,
 // так, что бы было видно их блоки (дать задний фон + margin. Иными словами - крайне четкая сетка)
 
-
 fetch(`https://jsonplaceholder.typicode.com/users`)
-.then(value => value.json())
-.then(users => {
-    for (const user of users) {
-        const userDiv = document.createElement(`div`);
-        userDiv.classList = `user`;
-        const h2Element = document.createElement(`h2`);
-        h2Element.innerText = user.id + `. ` + user.name;
-        const formElement = document.createElement(`form`);
-        formElement.setAttribute(`action`, `user-details.html`);
-        const buttonElement = document.createElement(`button`);
-        buttonElement.innerText = `User details`;
-        buttonElement.classList = `button`;
-        formElement.append(buttonElement);
-        userDiv.append(h2Element, formElement);
-        document.body.append(userDiv);
-        buttonElement.onclick = () =>{
-            localStorage.setItem(`user`, JSON.stringify(user));
+    .then((value) => value.json())
+    .then((users) => {
+        for (const user of users) {
+            const userDiv = document.createElement(`div`);
+            userDiv.classList = `user`;
+            const h2Element = document.createElement(`h2`);
+            h2Element.innerText = user.id + `. ` + user.name;
+            const formElement = document.createElement(`form`);
+            formElement.setAttribute(`action`, `user-details.html`);
+            const buttonElement = document.createElement(`button`);
+            buttonElement.innerText = `User details`;
+            buttonElement.classList = `button`;
+            formElement.append(buttonElement);
+            userDiv.append(h2Element, formElement);
+            document.body.append(userDiv);
+            buttonElement.onclick = () => {
+                localStorage.setItem(`user`, JSON.stringify(user));
+            };
         }
+    });
 
-    }
-})
 
+
+
+
+
+
+
+
+// const userhHtml = `
+//     <div class="user-container">
+//     <h1>Name</h1>
+//     <button href="user-details.html" target="_blank">User details</button>
+//     </div>
+// `;
+// function openUserDetails(user) {
+//     localStorage.setItem(`user`, JSON.stringify(user))
+//     // додати в локал сторедж
+//     // додати в локал сторедж
+//     window.open("user-details.html");
+// }
+// function renderUsers(users) {
+//     const container = document.getElementById("users-container");
+//     console.log("container", container);
+//
+//     users.forEach((user) => {
+//         const userContainer = document.createElement("div");
+//         userContainer.innerHTML = `
+//             <p>ID: ${user.id}</p>
+//             <h1>${user.name}</h1>
+//             <button onclick="openUserDetails(${user.id})">User details</button>
+//             <hr>`;
+//
+//         container.appendChild(userContainer);
+//     });
+//
+//     // container.append(JSON.stringify(usersHtml));
+//
+//     console.log("container", container);
+// }
+// fetch(`https://jsonplaceholder.typicode.com/users`)
+//     .then((value) => value.json())
+//     .then((users) => {
+//         renderUsers(users);
+//     });

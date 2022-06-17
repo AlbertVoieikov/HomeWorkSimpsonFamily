@@ -1,9 +1,12 @@
-let userDetails = localStorage.getItem(`user`);
-let userDetailsParse = JSON.parse(userDetails);
+const userDetails = localStorage.getItem(`user`);
+const userDetailsParse = JSON.parse(userDetails);
 console.log(userDetailsParse);
 
-const wrapUserDetails = document.getElementById(`userDet`);
+const wrapUserDetails = document.getElementById("userDet");
 const divUserDetails = document.createElement(`div`);
+
+console.log(wrapUserDetails);
+
 wrapUserDetails.append(divUserDetails);
 divUserDetails.append(userDetailsParse);
 divUserDetails.innerHTML = `
@@ -29,97 +32,33 @@ divUserDetails.innerHTML = `
                     <p>bs: ${userDetailsParse.company.bs}</p>
                 </p>`
 
-fetch(`https://jsonplaceholder.typicode.com/users/${userDetailsParse.id}/posts`)
-    .then(response => response.json())
-    .then(postsList => {
 
-        for (const post of postsList) {
-            const formElement = document.createElement(`form`);
-            formElement.setAttribute(`action`, `post-details.html`);
-            const postButton = document.createElement(`button`);
-            postButton.innerText = `Posts of current user`;
-            postButton.classList = `button`;
-            postButton.onclick = () => {
-                localStorage.setItem(`post`, JSON.stringify(post));
+const postsBtn = document.querySelector(`.btn-posts`);
+
+postsBtn.addEventListener(`click`, () => {
+    fetch(`https://jsonplaceholder.typicode.com/users/${userDetailsParse.id}/posts`)
+        .then(response => response.json())
+        .then(posts => {
+            window.localStorage.setItem('postsJson', JSON.stringify(posts))
+            const postWrap = document.querySelector(`.userPosts`);
+            for (const post of posts) {
+                const id = post.id;
+                const title = post.title;
+
+                const postsItem = document.createElement(`div`);
+                postsItem.classList = `postsItem`;
+                postsItem.innerHTML = `
+                    <a class='postItem_link' href="post-details.html?${id}">PostID ${id}</a>
+                    <h3 class='postItem_title'>${title}</h3>`;
+
+                postWrap.append(postsItem);
+
             }
-            formElement.append(postButton);
-            // postDiv.append(formElement);
-            divUserDetails.append(formElement);
-        }
+
+            postsBtn.disabled = true;
+
+        })
+
+})
 
 
-
-    });
-
-
-
-// fetch(`https://jsonplaceholder.typicode.com/users/${userDetailsParse.id}/posts`)
-//     .then(response => response.json())
-//     .then(postsList => {
-//         for (const post of postsList) {
-//             const postDiv = document.createElement(`div`);
-//             postDiv.classList = `post`;
-//             const h2Element = document.createElement(`h2`);
-//             h2Element.innerText = post.id + `. ` + post.title;
-//             const formElement = document.createElement(`form`);
-//             formElement.setAttribute(`action`, `post-details.html`);
-//             const postButton = document.createElement(`button`);
-//             postButton.innerText = `Posts of current user`;
-//             postButton.classList = `button`;
-//             postButton.onclick = () => {
-//                 localStorage.setItem(`post`, JSON.stringify(post));
-//             }
-//             formElement.append(postButton);
-//             // postDiv.append(formElement);
-//             divUserDetails.append(formElement);
-//
-//         }
-//
-//     });
-
-
-
-
-
-
-
-
-
-
-// const wrapUserDetails = document.getElementById(`userDet`);
-// fetch(`https://jsonplaceholder.typicode.com/users`)
-//     .then(value => value.json())
-//     .then(users => {
-//         const wrapUserDetails = document.getElementById(`userDet`);
-//         for (const userItem of users) {
-//             if (userItem.id) {
-//                 const divElement = document.createElement(`div`);
-//                 divElement.innerHTML = `
-//                 <p>id: ${userItem.id}</p>
-//                 <p>name: ${userItem.name} </p>
-//                 <p>username: ${userItem.username}</p>
-//                 <p>email: ${userItem.email}</p>
-//                 <p>address:
-//                      <p>street: ${userItem.address.street}</p>
-//                      <p>suite: ${userItem.address.suite}</p>
-//                      <p>city: ${userItem.address.city}</p>
-//                      <p>zipcode: ${userItem.address.zipcode}</p>
-//                      <p>geo:
-//                          <p>- lat: ${userItem.address.geo.lat}</p>
-//                          <p>- lng: ${userItem.address.geo.lng}</p>
-//                      </p>
-//                 </p>
-//                 <p>phone: ${userItem.phone}</p>
-//                 <p>website: ${userItem.website}</p>
-//                 <p>company:
-//                     <p>name: ${userItem.company.name}</p>
-//                     <p>catchPhrase: ${userItem.company.catchPhrase}</p>
-//                     <p>bs: ${userItem.company.bs}</p>
-//                 </p>`
-//                 wrapUserDetails.append(divElement);
-//
-//                 // const buttonElement = document.getElementsByClassName(`button`)
-//                 // buttonElement.disabled = true;
-//             }
-//         }
-//     })
