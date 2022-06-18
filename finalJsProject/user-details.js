@@ -34,7 +34,7 @@ divUserDetails.innerHTML = `
 
 
 const postsBtn = document.querySelector(`.btn-posts`);
-
+wrapUserDetails.append(postsBtn)
 postsBtn.addEventListener(`click`, () => {
     fetch(`https://jsonplaceholder.typicode.com/users/${userDetailsParse.id}/posts`)
         .then(response => response.json())
@@ -54,7 +54,6 @@ postsBtn.addEventListener(`click`, () => {
                 postWrap.append(postsItem);
 
             }
-
             postsBtn.disabled = true;
 
         })
