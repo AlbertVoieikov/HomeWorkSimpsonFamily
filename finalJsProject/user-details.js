@@ -48,7 +48,7 @@ postsBtn.addEventListener(`click`, () => {
                 const postsItem = document.createElement(`div`);
                 postsItem.classList = `postsItem`;
                 postsItem.innerHTML = `
-                    <a class='postItem_link' href="post-details.html?${id}">PostID ${id}</a>
+                    <a class='postItem_link' href="post-details.html?id=${id}">PostID ${id}</a>
                     <h3 class='postItem_title'>${title}</h3>`;
 
                 postWrap.append(postsItem);

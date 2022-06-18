@@ -45,8 +45,11 @@ fetch(`https://jsonplaceholder.typicode.com/users`)
             buttonElement.onclick = () => {
                 localStorage.setItem(`user`, JSON.stringify(user));
             };
+        const usersContainer = document.getElementById(`users`)
+        usersContainer.append(userDiv)
         }
     });
+
 
 
 
